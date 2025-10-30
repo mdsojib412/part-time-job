@@ -25,6 +25,11 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    if (userId !== req.user.id) {
+  return NextResponse.json(
+    { error: 'Unauthorized' }, { status: 401 }
+  );
+}
 
     header {
       position: relative;
@@ -200,3 +205,4 @@
 
 </body>
 </html>
+
